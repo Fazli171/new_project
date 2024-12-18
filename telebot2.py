@@ -1,6 +1,6 @@
 from telebot import TeleBot , types
 
-bot = TeleBot(token='7994405449:AAE4E91FgtzCJacRO94WSdcpQkDcPlBp-04')
+bot = TeleBot(token='TOKEN')
 try:
     tugmalar = types.ReplyKeyboardMarkup(row_width= 2,resize_keyboard=True)
     binary = types.KeyboardButton(text='decimal(10) -> binary(2)')

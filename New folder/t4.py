@@ -1,6 +1,4 @@
-
 from random import randint
-
 class Shaxs:
     def __init__(self, ism, famil, pas_ser, shaxs):
         self.ism = ism
@@ -24,6 +22,7 @@ class Shaxs:
         return f"{self.ism} {self.famil} {self.shaxs} shaxs passport malumotlari "
 
 class CardMal(Shaxs):
+
     MIN_SUM = 1000
 
     def __init__(self, ism, famil, pas_ser, shaxs, tel_raqam):
@@ -34,7 +33,6 @@ class CardMal(Shaxs):
         self.balans = 0
         self.his_mud = {}
         self.tr_history = []
-
     def get_history(self):
         return self.tr_history
 
@@ -70,7 +68,7 @@ class CardMal(Shaxs):
         return self.his_mud
     
     def get_balans(self):
-        return f"sizning balansingiz {self.balans}"
+        return f"sizning balansongiz {self.balans}"
 
 class Transfer(CardMal):
     def __init__(self, ism, famil, tel_raqam, pas_ser: int = None, shaxs: str = None):
@@ -88,7 +86,7 @@ class Transfer(CardMal):
             try:
                 summa = int(input("o'tkazma summasini krting : min = 1000 so'm\n"))
                 if summa >= self.MIN_SUM:
-                    if self.balans >= summa:
+                    if self.balans > summa:
                         summa_t = input(f"o'tqazma summasi {summa} OK/X\n").lower()
                         if summa_t == 'ok':
                             while True:
@@ -99,14 +97,14 @@ class Transfer(CardMal):
                                     if kod_t == kod:
                                             self.balans -= summa
                                             print(f"o'tkazma muvofaqiyatli yakunlandia; balansda {self.get_balans()}")
-                                            self.tr_history.append(f"chiqim -> {summa}")  # Tarixga chiqimni qo'shish
+                                            self.tr_history.append(f"chiqim -> {summa}")
                                             break
                                     else:
                                         print('kodni qayta kriting')
                                 except ValueError:
                                     print('kod raqamlardan iborat adashmang')
                         else:
-                            print("balansingizda mablag' yetarli emas")
+                            print("balsingizda mablag' yetarli emas")
                     else: 
                         print("balansingizda mablag' yetarli emas")
                 else:
@@ -119,8 +117,8 @@ class Transfer(CardMal):
 karta_foydalanuvchi = CardMal("Ali", "Valiyev", "AA1234567", "Fizik", "+998901234567")
 karta_foydalanuvchi.plas_raq()
 karta_foydalanuvchi.balanss()
-print(karta_foydalanuvchi.get_balans())
+karta_foydalanuvchi.get_balans()
 transfer_foydalanuvchi = Transfer("Bek", "Karimov", "+998912345678")
 transfer_foydalanuvchi.balans = karta_foydalanuvchi.balans 
 transfer_foydalanuvchi.otkazma()
-print(karta_foydalanuvchi.get_history())  # Tarixni chiqarish
+print(karta_foydalanuvchi.get_history())

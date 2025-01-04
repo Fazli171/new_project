@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sintaksis</title>
+</head>
+<body style="text-align: center;">
+    <h3>
+        Python Sintaksisi va So'zlashuv (Syntax and Semantics)</h3>
+    <ul>
+        <li>Sintaksis — bu dasturlash tilining grammatikasi yoki qoidalaridir. Python sintaksisi o'qilishi oson va sodda, bu yangi boshlovchilar uchun qulay. Semantika esa, sintaksis to'g'ri bo'lsa ham, dastur qanday ishlashini belgilovchi ma'no va xatti-harakatlardir</li>
+        <li>Kod bloklari: Python dasturida kod bloklari (funksiyalar, shartlar, tsikllar) bo'sh joylar (indentation) yordamida ajratiladi.
+
+            Python'da kod bloklari bo'sh joy bilan ajratiladi, masalan:
+            <span style="color:red;">
+            if x > 10:
+                print("x katta 10 dan")</span>
+            Bu yerda print() funksiyasi if shartining bir qismidir va bo'sh joy yordamida ajratilgan.</li>
+        <li>Shartli operatorlar:
+
+            if, elif, else — shartlarni tekshirish uchun ishlatiladi.
+            <span style="color: red;">
+            if yosh >= 18:
+                print("Katta yoshdasiz")
+            else:
+                print("Voyaga yetmagan")</span></li>
+        <li>Tsikllar:
+
+            for va while tsikllari orqali takrorlash amalga oshiriladi.
+            <span style="color: blue;">
+            for i in range(5):
+                print(i)</span></li>
+        <li>Kommentariyalar:
+
+            Python'da # belgisi yordamida kod ichiga izohlar kiritiladi.
+            <span style="color:red;">
+            # Bu faqat izoh
+            print("Salom, dunyo!")  # Ekranga matn chiqaradi</span></li>
+    </ul>
+    <h3>Python Semantikasining Asosiy Tushunchalari</h3>
+    <ul>
+        <li>O'zgaruvchilar:
+
+            Python’da o'zgaruvchilarni e'lon qilishda tipni ko'rsatish shart emas. Ular avtomatik tarzda qiymatga qarab aniqlanadi.
+            <span style="color: red;">
+            ism = "Ali"  # String
+            yosh = 25     # Integer
+            pi = 3.14     # Float</span></li>
+        <li>Tiplar:
+
+            Python’da turli xil ma'lumot turlari mavjud, masalan: int, float, str, list, tuple, dict, set, va boshqalar.
+            <span style="color: blue;">
+            # Integer
+            son = 10
+            # Float
+            pi = 3.14
+            # String
+            ism = "Ali"
+            # List
+            mevalar = ["olma", "banan", "apelsin"]</span></li>
+        <li>Funksiyalar:
+
+            Funksiyalar def kalit so'zi bilan aniqlanadi.
+            <span style="color: blue;">
+            def salom_ber(ism):
+                print(f"Salom, {ism}!")
+            
+            salom_ber("Ali")</span></li>
+        <li>Shartli va tsikl operatorlarining semantikasi:
+
+            if va for kabi operatorlar yordamida kodning qanday ishlashini boshqarish mumkin.
+            <span style="color: blue;">
+            if yosh > 18:
+                print("Katta yoshdasiz")
+            else:
+                print("Yosh kichik")</span></li>
+        <li>Lug'atlar (Dictionaries):
+
+            Lug'atlar, ma'lumotlarni kalit-qiymat juftliklari tarzida saqlash imkonini beradi.
+            <span style="color: red;">
+            odam = {"ism": "Ali", "yosh": 25}
+            print(odam["ism"])  # Ali</span></li>
+    </ul>
+    <h3> Python Sintaksisi va Semantikasini Yaxshi O'rganish Uchun Maslahatlar</h3>
+    <ul>
+        <li>Kod yozish tartibi: Python kodida sintaksis to'g'ri bo'lishi kerak, aks holda xatoliklar yuz beradi.</li>
+        <li>Indentatsiya (bo'sh joylar): Python kodidagi bo'sh joylar (indentation) juda muhim, chunki ular kodning to'g'ri bajarilishini ta'minlaydi.</li>
+        <li>Funktsiyalarni va metodlarni o'rganish: Python funksiyalari va metodlari sintaksisi oddiy, ammo ular dasturda aniq semantika bilan ishlaydi.
+        </li>
+    </ul>
+    <h1>
+        <a href="index.html">Bosh sahifa</a>
+    </h1>
+</body>
+</html>

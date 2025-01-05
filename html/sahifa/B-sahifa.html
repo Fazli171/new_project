@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bosh sahifa</title>
+</head>
+<body>
+    <form action="https://echo.htmlacademy.ru">
+        <label>ism :<label>
+        <input type="text" name="ism" placeholder="Ismingizni kiriting" id="ism" required>
+        <br>
+        <br>
+        <label>parol</label>
+        <input type="password" name = "parol kriting" placeholder="Parolni kriting" id="parol" required>
+        <br>
+        <br>
+        <label for="e-pochta">e-pochta</label>
+        <input type="email" name="e-pochta" placeholder="elektron pochta" id="e-pochta" required>
+        <br>
+        <br>
+        <label for="tel-raqam">tel-raqam</label>
+        <input type="tel" name="tel-raqam" placeholder="telefon raqam" id="tel-raqam" required>
+        <br>
+        <br>
+        <label >
+            data
+            <input type="date" name="tugilgan sana" placeholder="tugilgan 
+        sana" required> 
+        </label>
+        
+        <br>
+        <br>
+        <fieldset>
+            <legend>Tanlang</legend>
+            <select name="tanlang" id="">
+                <optgroup label="GM CAR">
+                    <option value="damas">damas</option>
+                    <option value="nexia" selected>nexia</option>
+                    <option value="tiko" disabled>tiko</option>
+                </optgroup>
+            </select>
+            <br>
+            <br>
+            
+        </fieldset>
+        <fieldset >
+            <legend>Tolov bo'limi</legend>
+            <label >
+                tolov usuli
+                <br>
+                <label >
+                    naqt tolov
+                    <input type="radio" name="tolov-usuli" value="naqt tolov" checked>
+                </label>
+                <label >
+                    bank kartasi
+                    <input type="radio" name="tolov-usuli" value="bank kartasi">
+                </label>
+            </label>
+        </fieldset>
+        
+        <button type="submit">Jo'natish</button>
+    </form>
+</body>
+</html>

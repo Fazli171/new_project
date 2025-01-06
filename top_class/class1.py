@@ -1,76 +1,90 @@
-class Admin:
-    def __init__(self):
-        self.parol = []
-        self.login = []
-        self.log_por = {}
-    def set_login(self):
-        while True:
-            login = input('login yarating')
-            if 6 < len(login):
-                if any (i.isdigit() for i in login):
-                    if any(i.isupper() for i in login):
-                            self.login.append(login)
-                            print('qoniqarli login')
-                            break
-                    else:
-                        print("login hech bo'lmaganda bitta kotta harf bo'lishi kerak")
+class Person:
+    def __init__(self, ism, fam, yosh):
+        self.ism = ism
+        self.fam = fam
+        self.yosh = yosh
+
+    def get_info(self):
+        return f"{self.ism} {self.fam}, yoshi {self.yosh} da"
+
+
+class Application(Person):
+    def __init__(self, ism, fam, yosh, lavozim):
+        super().__init__(ism, fam, yosh)
+        self.lavozim = lavozim
+
+    def ariza(self):
+        if self.yosh >= 18:
+            print("Ariza qabul qilindi")
+        else:
+            print("Siz balog'at yoshiga yetmagansiz, ariza o'tkazib yuborildi.")
+            return False
+        return True
+
+
+class JobRoles(Application):
+    ish_lar = [] 
+    def __init__(self, ism, fam, yosh, lavozim):
+        super().__init__(ism, fam, yosh, lavozim)
+        self.job = {
+            "Frontend Developer": 1000,
+            "Backend Developer": 1200,
+            "Full-Stack Developer": 1500,
+            "Mobile App Developer": 1300,
+            "Game Developer": 1400,
+            "Software Engineer": 1600,
+            "Data Scientist": 2000,
+            "Data Analyst": 1800,
+            "Machine Learning Engineer": 2200,
+        }
+
+    def qabul(self, ish_s: int = 40):
+        self.ish_s = ish_s
+        if self.ish_s < 40:
+            print("Kampaniya qoidalariga ko'ra haftasiga 40 soatdan kam ishlash mumkin emas.")
+            return  
+
+        if self.lavozim in self.job.keys():
+            natija = input(
+                f'''Sizni arizangizni ko'rib chiqdik. Lavozim: {self.lavozim}, ish soati: {self.ish_s}.
+Sizga bu qoniqarlimi? (HA/YO'Q): '''
+            ).lower()
+            if natija == 'ha':
+                javob = input(
+                    f'''Sizga {self.lavozim} uchun {self.job[self.lavozim]} oylik to'lanadi. 
+Bu narx sizga qoniqarlimi? (HA/YO'Q): '''
+                ).lower()
+                if javob == 'ha':
+                    print("Tabriklaymiz, siz ishga qabul qilindingiz!")
+                    JobRoles.ish_lar.append(
+                        f"{self.get_info()} {self.lavozim} oyligi {self.job[self.lavozim]} ish soati {self.ish_s}"
+                    )
                 else:
-                    print("login harflar va raqamlardan iborat bo'lsin")
+                    print("Afsuski, sizga bundan yuqori maosh taklif qila olmaymiz.")
             else:
-                print('login 6 ta belgidan kop bolishi kerak')  
-    def set_parol(self):
-        while True:
-            parol = input("parol o'ylab toping")
-            if parol != self.login[-1]:
-                if 6 < len(parol):
-                    if any (i.isupper() for i in parol):
-                        if any(i.isdigit() for i in parol):
-                            self.parol.append(parol)
-                            print("qoniqarli parol")
-                            break
-                        else:
-                            print("parol hech bo'lmasa bitta raqam bo'lishi kerak")
-                    else:
-                        print("parol hech bo'lmaganda bitta harfi kotta bo'lishi kerak")       
-                else:
-                    print("parol 6 belgidan ko'p bo'lishi kerak")
-            else:
-                print("parol va login bir xil bo'lishi mumkin emas")
-    def set_prof(self):
-        if len(self.login) == len(self.parol):
-            self.log_por = dict(zip(self.login,self.parol))
-            return self.log_por
-        else :
-            return 'malumotlar yetarli emas'
+                print("Ariza bekor qilindi.")
+        else:
+            print("Kechirasiz, siz tanlagan lavozim bizda mavjud emas.")
 
-class AdminPanel(): 
-    def __init__(self, admin_abj):
-    
-        self.log_por = admin_abj.set_prof()
-    def Ad_panel(self):
-        while True:
-            login = input('loginni kriting  ')
-            if login in self.log_por:
-                print("login muvoffaqiyatli kritdingiz")
-                sanoq = 0
-                while True:   
-                    parol = input("parolni kriting  ")
-                    if parol == self.log_por[login]:
-                        print("tizimga hush kelibsiz")
-                        break
-                    else:
-                        print("siz xato porol kritdingiz")
-                    if sanoq >= 3:
-                        print("urintishlar soni ortib ketdi")
-                        break
-                    sanoq += 1
-            else:
-                print('siz kritgan login mavjud emas')
+    @classmethod
+    def get_all_info(cls):
+        if not cls.ish_lar:
+            return "Sizda qabul qilingan ishlar mavjud emas."
+        return "\n".join(cls.ish_lar)
 
-admin = Admin()
-admin.set_login()
-admin.set_parol()
-panel = AdminPanel(admin)
-panel.Ad_panel()
-print(admin.set_prof())
 
+ishchilar = [
+    JobRoles("Fazliddin", "Narzullayev", 26, "Backend Developer"),
+    JobRoles("Husniddin", "Abduhalilov", 17, "Frontend Developer"),
+    JobRoles("Abror", "Toraqulov", 16, "Full-Stack Developer"),
+    JobRoles("Faxri", "Bekmirzayev", 26, "Software Engineer")
+]
+
+for ishchi in ishchilar:
+    print(ishchi.get_info())
+    if ishchi.ariza(): 
+        ishchi.qabul(40)
+    print("-" * 50)
+
+print("Barcha ishchilar:")
+print(JobRoles.get_all_info())

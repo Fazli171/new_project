@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: yellowgreen; text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div> <br>
+        <form action="https://echo.htmlacademy.ru" >
+            <label for="ism">Name</label>
+            <input type="text" id="ism" name="ismi" placeholder="Ismingizni kriting"/> <br><br>
+            <label for="par">Surnamr</label> 
+            <input type="text" id="par" name="parol" placeholder="Familiyangizni kriting"> <br><br>
+            <label for="email">e-mail</label>
+            <input type="email" id="email" name="email" placeholder="e-mailingizni kriting"> <br><br>
+            <label for="par">Password</label>
+            <input type="password" id="par" name="parol" placeholder="Parol o'ylab toping "><br><br>
+            <label for="par_tak">Repeat password</label>
+            <input type="password" id="par_tak" name="tak_parol" placeholder="Parolni takrorlang"> <br><br>
+            <label for="data">Tyg'ilgan sana</label>
+            <input type="date" id="data" name="Tugilgan sana" placeholder="Yugilgan 
+            sangiz"><br><br>
+            <fieldset>
+                <legend>Jinsi</legend>
+                Erkak
+                <input type="radio" id="gender" name="Jinsi" value="Erkak" > <br>
+                Ayol
+                <input type="radio" id="gender" name="Jinsi" value="Ayol"> 
+            </fieldset>
+            <fieldset>
+                <legend>specialization</legend>
+                <label for="tanlash">Tanlang</label>
+                <select name="specialization" id="tanlash">
+                    <optgroup label="specialization">
+                        <option value="Web Development">Web Development</option>
+                        <option value="Mobile Development">Mobile Development</option>
+                        <option value="Database Management">Database Management</option>
+                        <option value="Artificial Intelligence">Artificial Intelligence</option>
+                        <option value="Cybersecurity">Cybersecurity</option>
+                    </optgroup>
+                </select> <br> <br>
+                <select name="Tajriba" id="tanlash">
+                    <optgroup label="Tajriba">
+                        <option value="0 yil" selected>tajriba yo'q</option><br>
+                        <option value="1">1 yildan ko'p</option>
+                        <option value="3">3 yildan ko'p</option>
+                    </optgroup>
+                </select>
+            </fieldset>
+            Ro'yxatdan o'tish sanasi
+            <input type="month"> <br><br>
+            <label for="">Telefon raqamingiz</label>
+            <input type="tel" id="" name="tel raqam" placeholder="+998330939898"> <br><br>
+
+            <label for="shart">Shartlarimizga rozimisiz</label>
+            <input type="checkbox" id="shart" name="shartlarga rozilik"> <br><br>
+
+            <button>Jo'natish</button>
+
+            <br>
+        </form>
+    </div>
+
+</body>
+</html>

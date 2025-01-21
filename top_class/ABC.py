@@ -1,0 +1,219 @@
+from abc import ABC, abstractmethod
+from random import randint
+
+
+class Post(ABC):
+    def __init__(self, title, cantent):
+        self.title = title
+        self.cantent = cantent
+
+    @abstractmethod
+    def create(self):
+        pass
+
+    @abstractmethod
+    def update(self):
+        pass
+
+    @abstractmethod
+    def delete(self):
+        pass
+
+
+class KunUzPost(Post):
+
+    def create(self):
+        print(f"kun yangiliklari {self.title} haqida {
+              self.cantent} kabi malumotlar berildi")
+
+    def update(self, editing):
+        print(f"{self.title} posti {editing} ga o'zgartirildi")
+
+    def delete(self):
+        print(f"{self.title} posti o'chirildi")
+
+
+class DaryoPost(Post):
+
+    def create(self):
+        print(f"kun yangiliklari {self.title} haqida {
+              self.cantent} kabi malumotlar berildi")
+
+    def update(self, editing):
+        print(f"{self.title} posti {editing} ga o'zgartirildi")
+
+    def delete(self):
+        print(f"{self.title} posti o'chirildi")
+
+
+class TerabaytPost(Post):
+
+    def create(self):
+        print(f"kun yangiliklari {self.title} haqida {
+              self.cantent} kabi malumotlar berildi")
+
+    def update(self, editing):
+        print(f"{self.title} posti {editing} ga o'zgartirildi")
+
+    def delete(self):
+        print(f"{self.title} posti o'chirildi")
+
+
+class Transaction(ABC):
+
+    def __init__(self, card: str, phone_num: str, amount: float = 1000):
+        self.amount = amount
+        self.card = card
+        self.phone_num = phone_num
+
+    @abstractmethod
+    def start(self):
+        pass
+
+    @abstractmethod
+    def end(self):
+        pass
+
+    @abstractmethod
+    def verify(self):
+        pass
+
+    @abstractmethod
+    def proceed(self):
+        pass
+
+    @abstractmethod
+    def cancel(self):
+        pass
+
+
+class AloqaBank(Transaction):
+
+    def start(self):
+        return f"{self.card} karta raqamiga o'tkazma boshlandi."
+
+    def end(self):
+        return "O'tkazma summasini kiriting. "
+
+    def verify(self):
+        if self.amount >= 1000:
+            return f"O'tkazma miqdori tasdiqlandi: {self.amount} so'm."
+        else:
+            return "Eng kam o'tkazma miqdori 1000 so'mdan yuqori bo'lishi kerak."
+
+    def proceed(self):
+        cod = randint(1111, 9999)
+        print(cod)
+        try:
+            answer = int(input("SMS orqali yuborilgan kodni kiriting: "))
+            if answer == cod:
+                return "O'tkazma muvaffaqiyatli yakunlandi."
+            else:
+                return "Kod xato. Tranzaksiya bekor qilindi."
+        except ValueError:
+            return "Noto'g'ri formatdagi kod kiritildi. Tranzaksiya bekor qilindi."
+
+    def cancel(self):
+        return "Tranzaksiya bekor qilindi."
+
+
+s = AloqaBank("9860170103486743", 10000, "+998976131698")
+
+print(s.start())
+print(s.end())
+print(s.verify())
+print(s.proceed())
+print(s.cancel())
+
+
+class IpakYoli(Transaction):
+
+    def start(self):
+        return f"{self.card} karta raqamiga o'tkazma boshlandi."
+
+    def end(self):
+        return "O'tkazma summasini kiriting."
+
+    def verify(self):
+        if self.amount >= 1000:
+            return f"O'tkazma miqdori tasdiqlandi: {self.amount} so'm."
+        else:
+            return "Eng kam o'tkazma miqdori 1000 so'mdan yuqori bo'lishi kerak."
+
+    def proceed(self):
+        cod = randint(1111, 9999)
+        print(cod)
+        try:
+            answer = int(input("SMS orqali yuborilgan kodni kiriting: "))
+            if answer == cod:
+                return "O'tkazma muvaffaqiyatli yakunlandi."
+            else:
+                return "Kod xato. Tranzaksiya bekor qilindi."
+        except ValueError:
+            return "Noto'g'ri formatdagi kod kiritildi. Tranzaksiya bekor qilindi."
+
+    def cancel(self):
+        return "Tranzaksiya bekor qilindi."
+
+
+s = IpakYoli("9860170103486743", 10000, "+998976131698")
+
+
+class KDB(Transaction):
+
+    def start(self):
+        return f"{self.card} karta raqamiga o'tkazma boshlandi."
+
+    def end(self):
+        return "O'tkazma summasini kiriting. "
+
+    def verify(self):
+        if self.amount >= 1000:
+            return f"O'tkazma miqdori tasdiqlandi: {self.amount} so'm."
+        else:
+            return "Eng kam o'tkazma miqdori 1000 so'mdan yuqori bo'lishi kerak."
+
+    def proceed(self):
+        cod = randint(1111, 9999)
+        print(cod)
+        try:
+            answer = int(input("SMS orqali yuborilgan kodni kiriting: "))
+            if answer == cod:
+                return "O'tkazma muvaffaqiyatli yakunlandi."
+            else:
+                return "Kod xato. Tranzaksiya bekor qilindi."
+        except ValueError:
+            return "Noto'g'ri formatdagi kod kiritildi. Tranzaksiya bekor qilindi."
+
+    def cancel(self):
+        return "Tranzaksiya bekor qilindi."
+
+
+class Shape(ABC):
+
+    def area(self):
+        pass
+
+    def peremetr(self):
+        pass
+
+
+class Triangle(Shape):
+
+    def __init__(self, a, b, c):
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def area(self):
+        s = self.a + self.b + self.c
+        return (s * (s - self.a) * (s - self.b) * (s - self.c)) ** 0.5
+
+    def peremetr(self):
+        return self.a + self.b + self.c
+
+
+d = Triangle(3, 5, 7)
+
+print(d.area())
+print(d.peremetr())

@@ -117,7 +117,7 @@ class AloqaBank(Transaction):
         return "Tranzaksiya bekor qilindi."
 
 
-s = AloqaBank("9860170103486743", 10000, "+998976131698")
+s = AloqaBank("9860170103486743", "+998976131698", 1000)
 
 print(s.start())
 print(s.end())
@@ -217,3 +217,128 @@ d = Triangle(3, 5, 7)
 
 print(d.area())
 print(d.peremetr())
+
+
+class Vehicle(ABC):
+    def __init__(self, model):
+        self.model = model
+        self.condition = False
+        self.light_h = False
+
+    def startEngine(self, ):
+        pass
+
+    def stopEngine(self):
+        pass
+
+    def lightOn(self):
+        pass
+
+    def lightOf(self):
+        pass
+
+class Car(Vehicle):
+
+    def startEngine(self):
+        if not self.condition :
+            self.condition = True
+            return f"{self.model} yurgazildi"
+        else:
+            return f"{self.model} allaqachon yurgazilgan."
+
+    def lightOn(self):
+        if not self.light_h :
+            self.light_h = True
+            return f"{self.model} chiroqlari yoqildi"
+        else :
+            return f"{self.model} chiroqlari yoqiq holatda"
+        
+    def stopEngine(self):
+        if self.condition :
+            self.condition = False
+            return f"{self.model} O'chirildi"
+        else:
+            return f"{self.model} o'chiq holatda"
+        
+    def lightOf(self):
+        if self.light_h:
+            self.light_h = False
+            return f"{self.model} chiroqAri o'chirildi"
+        else:
+            return f"{self.model} chiroqlari o'chiq holatda"
+
+f = Car('gentra') 
+print(f.startEngine())
+print(f.stopEngine())
+print(f.lightOn()) 
+print(f.lightOf())    
+
+class Bus(Vehicle):
+
+    def startEngine(self):
+        if not self.condition :
+            self.condition = True
+            return f"{self.model} yurgazildi"
+        else:
+            return f"{self.model} allaqachon yurgazilgan."
+
+    def lightOn(self):
+        if not self.light_h :
+            self.light_h = True
+            return f"{self.model} chiroqlari yoqildi"
+        else :
+            return f"{self.model} chiroqlari yoqiq holatda"
+        
+    def stopEngine(self):
+        if self.condition :
+            self.condition = False
+            return f"{self.model} O'chirildi"
+        else:
+            return f"{self.model} o'chiq holatda"
+        
+    def lightOf(self):
+        if self.light_h:
+            self.light_h = False
+            return f"{self.model} chiroqAri o'chirildi"
+        else:
+            return f"{self.model} chiroqlari o'chiq holatda"
+
+
+class Truck(Vehicle):
+
+    def startEngine(self):
+        if not self.condition :
+            self.condition = True
+            return f"{self.model} yurgazildi"
+        else:
+            return f"{self.model} allaqachon yurgazilgan."
+
+    def lightOn(self):
+        if not self.light_h :
+            self.light_h = True
+            return f"{self.model} chiroqlari yoqildi"
+        else :
+            return f"{self.model} chiroqlari yoqiq holatda"
+        
+    def stopEngine(self):
+        if self.condition :
+            self.condition = False
+            return f"{self.model} O'chirildi"
+        else:
+            return f"{self.model} o'chiq holatda"
+        
+    def lightOf(self):
+        if self.light_h:
+            self.light_h = False
+            return f"{self.model} chiroqAri o'chirildi"
+        else:
+            return f"{self.model} chiroqlari o'chiq holatda"      
+            
+        
+ac = Car('gentra') 
+print(ac.startEngine())
+print(ac.stopEngine())
+print(ac.lightOn()) 
+print(ac.lightOf()) 
+    
+

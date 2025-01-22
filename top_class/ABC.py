@@ -193,7 +193,7 @@ class Shape(ABC):
     @abstractmethod
     def area(self):
         pass
-        @abstractmethod
+    @abstractmethod
     def peremetr(self):
         pass
 

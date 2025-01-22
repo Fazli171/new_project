@@ -5,12 +5,16 @@ month = date.month
 year = date.year
 
 class BankCard:
-    def __init__(self, ism):
+    def __init__(self, name, surname):
         self.__balance = 0
         self.__card_num = randint(9860000000000000, 9860999999999999)
         self.__deadline = f"{month}/{year+5}"
         self.__code = randint(1111,9999)
-        self.__ism = ism
+        self.__name = name
+        self.__surname = surname
+
+    def get_name(self):
+        return f"karta egasin {self.__name} {self.__surname}"
 
     @property
     def balance(self):

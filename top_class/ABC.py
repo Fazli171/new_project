@@ -190,10 +190,10 @@ class KDB(Transaction):
 
 
 class Shape(ABC):
-
+    @abstractmethod
     def area(self):
         pass
-
+        @abstractmethod
     def peremetr(self):
         pass
 
@@ -224,16 +224,16 @@ class Vehicle(ABC):
         self.model = model
         self.condition = False
         self.light_h = False
-
+    @abstractmethod
     def startEngine(self, ):
         pass
-
+    @abstractmethod
     def stopEngine(self):
         pass
-
+    @abstractmethod
     def lightOn(self):
         pass
-
+    @abstractmethod
     def lightOf(self):
         pass
 

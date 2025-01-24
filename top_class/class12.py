@@ -25,8 +25,9 @@ ran_numbers = sample(cars_number,k=len(cars_number))
 
 cars = [Car(name, number) for name, number in zip(ran_names,ran_numbers)]
 
-for i in cars:
-    print(i)
+with open ('file.txt', 'w') as file:
+    for i, car in enumerate(cars, 1):
+        file.write(f'{i} {car}\n' )
 
 
 

@@ -29,31 +29,3 @@ with open ('file.txt', 'w') as file:
     for i, car in enumerate(cars, 1):
         file.write(f'{i} {car}\n' )
 
-
-
-
-
-
-
-
-
-
-    # with open('file.txt', 'w') as file:
-
-
-
-
-
-
-
-
-
-
-
-# lis = [['tiko', '01A123VB']
-#        ['matiz', '30D932NM']
-#        ['Nexia_2', '30N946LA']
-#        ["Gerntra", '01L390DG']
-#        [ 'Captiva', "10K235OK"]
-#        ["BYD", '20K492HK']
-#        ['BMW', '25F298LK']]

@@ -1,3 +1,4 @@
+from random import sample
 class Car:
 
     def __init__(self, car_name, car_number):
@@ -15,7 +16,9 @@ class Car:
         return self.car_number
 cars_name = ['Tiko', 'GentrA', 'Cobalt', 'nexia']
 cars_number = ['10A324GD', '20S091Sl', '30E232SL','01W432HK']
-
+cars = []
+for i in range(4):
+    car = 
 
 
 

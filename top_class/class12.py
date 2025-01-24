@@ -19,10 +19,11 @@ class Car:
         return f"{self.car_name} {self.car_number}"
 cars_name = ['Tiko', 'GentrA', 'Cobalt', 'nexia']
 cars_number = ['10A324GD', '20S091Sl', '30E232SL','01W432HK']
-cars = []
-for i in range(4):
-    car = Car(sample(cars_name, k=1)[0],sample(cars_number,k=1)[0])
-    cars.append(car)
+
+ran_names = sample(cars_name,k=len(cars_name))
+ran_numbers = sample(cars_number,k=len(cars_number))
+
+cars = [Car(name, number) for name, number in zip(ran_names,ran_numbers)]
 
 for i in cars:
     print(i)

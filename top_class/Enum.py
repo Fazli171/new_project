@@ -1,5 +1,6 @@
 from enum import Enum
 from datetime import datetime
+from typing import List
 
 class Gender(Enum):
     Male = 'male'
@@ -81,5 +82,36 @@ class Train():
         return f"Train Id {self.TrainId} \nname {self.name} \ndriver {self.driver} \nsped {self.sped}"
     
 
-t1 = Train('za187','Sharq', 230, d1)
+t1 = Train('YH187','Sharq', 230, d1)
+
+class Plartform:
+    def __init__(self, platformId: str, status: bool):
+        self.platformId = platformId
+        self.status = status
+    
+    def __str__(self):
+        return f"platform Id {self.platformId} status {"bo'sh" if self.status else "bo'sh emas"}"
+    
+class Trip:
+    def __init__(self, from_ , to , train: Train, platform: Plartform, pessengers: List[Pessenger], priceTrip, dateTrip):
+        self.from_ = from_
+        self.to = to
+        self.train = train
+        self.platform = platform
+        self.pessengers = pessengers
+        self.priceTrip = priceTrip
+        self.dataTrip =dateTrip
+
+    
+        
+        
+        
+        
+
+        
+        
+
+
+    
+
 

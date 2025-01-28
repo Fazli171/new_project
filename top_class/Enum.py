@@ -55,7 +55,31 @@ class Driver(Person):
     
     def get_info(self):
         return super().get_info() + f"/nAge {self.age} \nBorth year {self.get_borth_year()}"
-    
-class Train()
 
+d1 = Driver('fazliddin narzullayev', 'AA1234', 26)
     
+class Train():
+    def __init__(self,TrainId: str, name: str, sped: int, driver: Driver):
+        self.name = name
+        self.driver = driver
+        self.sped = sped
+        self.TrainId = TrainId
+
+    def get_name(self):
+        return self.name
+    
+    def get_driver(self):
+        return self.driver
+    
+    def get_sped(self):
+        return self.sped
+    
+    def get_tainid(self):
+        return self.TrainId
+    
+    def __str__(self):
+        return f"Train Id {self.TrainId} \nname {self.name} \ndriver {self.driver} \nsped {self.sped}"
+    
+
+t1 = Train('za187','Sharq', 230, d1)
+

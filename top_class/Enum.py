@@ -173,14 +173,3 @@ class RailwayStadion:
 rail = RailwayStadion('janubiy vafzal', 'sergili tumani: toshkent', tripss)
 print(rail)
         
-        
-        
-        
-
-        
-        
-
-
-    
-
-

@@ -1,0 +1,112 @@
+/* Asosiy stil */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Asosiy konteyner */
+.main-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Viloyat tanlash bo'limi */
+.viloyat-container {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Rom narxi hisoblash bo'limi */
+.rom-container {
+    flex: 2;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Sarlavhalar */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Forma elementlari */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #555;
+}
+
+input, select, button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #0db632;
+}
+
+/* Tugmalar */
+button {
+    background-color: #10ca2f;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Tumanlar konteyneri */
+#tumanlar-container {
+    margin-top: 15px;
+}
+
+/* Natija ko'rsatish */
+#natija, #result {
+    margin-top: 15px;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ecf0f1;
+    color: #333;
+}
+
+/* Xatolik xabarlari */
+#natija[style*="color: red"] {
+    background-color: #ffebee;
+    color: #c0392b;
+}
+
+/* Mobil moslashuvchanlik */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .viloyat-container, .rom-container {
+        flex: 1;
+    }
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rom Narxi Hisoblash</title>
+    <link rel="stylesheet" href="rom.css">
+</head>
+<body>
+    <div class="back-to-home">
+        <button onclick="window.location.href='index.html'">Bosh sahifaga qaytish</button>
+
+    </div>
+
+
+    <!-- Asosiy konteyner -->
+    <div class="main-container">
+        <!-- Viloyat tanlash bo'limi -->
+        <div class="viloyat-container">
+            <h1>Viloyatingizni tanlang</h1>
+            <form>
+                <label for="viloyat">Viloyat:</label>
+                <select id="viloyat" name="viloyat" onchange="viloyatTanlandi()">
+                    <option value="">Tanlang</option>
+                    <option value="toshkent">Toshkent</option>
+                    <option value="andijon">Andijon</option>
+                    <option value="buxoro">Buxoro</option>
+                    <option value="fargona">Fargʻona</option>
+                    <option value="jizzax">Jizzax</option>
+                    <option value="namangan">Namangan</option>
+                    <option value="navoiy">Navoiy</option>
+                    <option value="qashqadaryo">Qashqadaryo</option>
+                    <option value="samarqand">Samarqand</option>
+                    <option value="sirdaryo">Sirdaryo</option>
+                    <option value="surxondaryo">Surxondaryo</option>
+                    <option value="xorazm">Xorazm</option>
+                    <option value="qoraqalpogiston">Qoraqalpogʻiston</option>
+                </select>
+
+                <!-- Tumanlar ro'yxati -->
+                <div id="tumanlar-container" style="display: none;">
+                    <label for="tuman">Tuman:</label>
+                    <select id="tuman" name="tuman">
+                        <option value="">Tanlang</option>
+                    </select>
+                </div>
+
+                <!-- Tanlash tugmasi -->
+                <button type="button" onclick="tanlash()"><a href="viloyat.html">JOYLASHUV</a></button>
+            </form>
+
+            <!-- Natija ko'rsatish -->
+            <p id="natija"></p>
+            
+        </div>
+
+        <!-- Rom narxi hisoblash bo'limi -->
+        <div class="rom-container">
+            <h1>Rom Narxi Hisoblash</h1>
+            <form id="romForm">
+                <!-- Rom o'lchamlari -->
+                <label for="height">Rom Boʻyi (metrda):</label>
+                <input type="number" id="height" step="0.01" required>
+
+                <label for="width">Rom Eni (metrda):</label>
+                <input type="number" id="width" step="0.01" required>
+
+                <!-- Material turi -->
+                <label for="material">Material Turi:</label>
+                <select id="material" required>
+                    <option value="aluminiy">Aluminiy</option>
+                    <option value="plastik">Plastik</option>
+                </select>
+
+                <!-- Ishlab chiqaruvchi kompaniya -->
+                <label for="company">Ishlab Chiqaruvchi Kompaniya:</label>
+                <select id="company" required>
+                    <option value="akfa">Akfa</option>
+                    <option value="alutex">Alutex</option>
+                    <option value="alpro">Alpro</option>
+                </select>
+
+                <button type="submit">Narxni Hisoblash</button>
+            </form>
+
+            <!-- Natija -->
+            <div id="result"></div>
+            
+        </div>
+    </div>
+
+    <script>
+        // Viloyat tanlanganda tumanlarni yuklash
+        function viloyatTanlandi() {
+            const viloyat = document.getElementById("viloyat").value;
+            const tumanlarContainer = document.getElementById("tumanlar-container");
+            const tumanSelect = document.getElementById("tuman");
+
+            // Tumanlar ro'yxatini tozalash
+            tumanSelect.innerHTML = '<option value="">Tanlang</option>';
+
+            if (viloyat) {
+                // Tumanlar ro'yxatini yuklash
+                const tumanlar = getTumanlarByViloyat(viloyat);
+                tumanlar.forEach(tuman => {
+                    const option = document.createElement("option");
+                    option.value = tuman;
+                    option.textContent = tuman;
+                    tumanSelect.appendChild(option);
+                });
+
+                // Tumanlar ro'yxatini ko'rsatish
+                tumanlarContainer.style.display = "block";
+            } else {
+                // Tumanlar ro'yxatini yashirish
+                tumanlarContainer.style.display = "none";
+            }
+        }
+
+        // Viloyat bo'yicha tumanlarni qaytaruvchi funksiya
+        function getTumanlarByViloyat(viloyat) {
+            const tumanlar = {
+                toshkent: ["Olmazor", "Bektemir", "Yunusobod", "Mirzo Ulugʻbek", "Sergeli", "Shayxontohur", "Yashnobod", "Chilonzor", "Uchtepa", "Yakkasaroy", "Mirobod"],
+                andijon: ["Andijon shahar", "Andijon tuman", "Asaka", "Baliqchi", "Boʻston", "Buloqboshi", "Izboskan", "Jalaquduq", "Marhamat", "Oltinkoʻl", "Paxtaobod", "Qoʻrgʻontepa", "Shahrixon", "Ulugʻnor", "Xoʻjaobod"],
+                buxoro: ["Buxoro shahar", "Buxoro tuman", "Gʻijduvon", "Jondor", "Kogon", "Olot", "Peshku", "Qorakoʻl", "Qorovulbozor", "Romitan", "Shofirkon", "Vobkent"],
+                fargona: ["Fargʻona shahar", "Fargʻona tuman", "Beshariq", "Bogʻdod", "Buvayda", "Dangʻara", "Furqat", "Oltiariq", "Qoʻshtepa", "Quva", "Rishton", "Soʻx", "Toshloq", "Uchkoʻprik", "Yozyovon"],
+                jizzax: ["Jizzax shahar", "Jizzax tuman", "Arnasoy", "Baxmal", "Doʻstlik", "Forish", "Gʻallaorol", "Mirzachoʻl", "Paxtakor", "Yangiobod", "Zafarobod", "Zarbdor", "Zomin"],
+                namangan: ["Namangan shahar", "Namangan tuman", "Chortoq", "Chust", "Kosonsoy", "Mingbuloq", "Norin", "Pop", "Toʻraqoʻrgʻon", "Uchqoʻrgʻon", "Uychi", "Yangiqoʻrgʻon"],
+                navoiy: ["Navoiy shahar", "Navoiy tuman", "Karmana", "Konimex", "Nurota", "Qiziltepa", "Tomdi", "Uchquduq", "Xatirchi", "Zarafshon"],
+                qashqadaryo: ["Qarshi shahar", "Qarshi tuman", "Chiroqchi", "Dehqonobod", "Gʻuzor", "Kasbi", "Kitob", "Koson", "Mirishkor", "Muborak", "Nishon", "Shahrisabz", "Yakkabogʻ"],
+                samarqand: ["Samarqand shahar", "Samarqand tuman", "Bulungʻur", "Ishtixon", "Jomboy", "Kattaqoʻrgʻon", "Narpay", "Nurobod", "Oqdaryo", "Paxtachi", "Payariq", "Qoʻshrabot", "Tayloq", "Urgut"],
+                sirdaryo: ["Guliston shahar", "Guliston tuman", "Boyovut", "Oqoltin", "Sardoba", "Sayxunobod", "Sirdaryo", "Xovos", "Mirzaobod", "Yangiyer"],
+                surxondaryo: ["Termiz shahar", "Termiz tuman", "Angor", "Bandixon", "Boysun", "Denov", "Jarqoʻrgʻon", "Muzrabot", "Oltinsoy", "Qiziriq", "Qumqoʻrgʻon", "Sariosiyo", "Sherobod", "Shoʻrchi", "Uzun"],
+                xorazm: ["Urganch shahar", "Urganch tuman", "Bogʻot", "Gurlan", "Hazorasp", "Qoʻshkoʻpir", "Shovot", "Xiva", "Xonqa", "Yangiariq", "Yangibozor"],
+                qoraqalpogiston: ["Nukus shahar", "Nukus tuman", "Amudaryo", "Beruniy", "Chimboy", "Ellikqala", "Kegeyli", "Moʻynoq", "Qonlikoʻl", "Qoʻngʻirot", "Qoraoʻzak", "Shumanay", "Taxtakoʻpir", "Toʻrtkoʻl", "Xoʻjayli"]
+            };
+
+            return tumanlar[viloyat] || [];
+        }
+
+        // Tanlash tugmasi bosilganda
+        function tanlash() {
+            const viloyat = document.getElementById("viloyat").value;
+            const tuman = document.getElementById("tuman").value;
+            const natija = document.getElementById("natija");
+
+            if (!viloyat || !tuman) {
+                natija.textContent = "Iltimos, viloyat va tumaningizni tanlang!";
+                natija.style.color = "red";
+            } else {
+                natija.textContent = `Siz tanlagan viloyat: ${viloyat.toUpperCase()}, tuman: ${tuman}`;
+                natija.style.color = "green";
+            }
+        }
+
+        // Rom narxini hisoblash bo'limi
+        document.getElementById("romForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const height = parseFloat(document.getElementById("height").value);
+            const width = parseFloat(document.getElementById("width").value);
+            const material = document.getElementById("material").value;
+            const company = document.getElementById("company").value;
+
+            // Narxni hisoblash (bu faqat misol, sizga kerakli formulani qo'llang)
+            let price = (height * width) * (material === "aluminiy" ? 100 : 80); // Misol uchun, har bir kvadrat metr uchun narx
+            if (company === "akfa") {
+                price *= 1.1; // Akfa kompaniyasi uchun 10% qo'shish
+            } else if (company === "alutex") {
+                price *= 1.05; // Alutex kompaniyasi uchun 5% qo'shish
+            }
+
+            document.getElementById("result").textContent = `Hisoblangan narx: ${price.toFixed(2)} so'm`;
+        });
+    </script>
+
+</body>
+</html>

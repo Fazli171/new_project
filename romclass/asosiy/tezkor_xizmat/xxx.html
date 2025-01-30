@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rom Narxi Hisoblash</title>
     <link rel="stylesheet" href="rom.css">
+    <!-- Leaflet CSS va JavaScript ni ulash -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
     <div class="back-to-home">
@@ -46,7 +49,7 @@
                 </div>
 
                 <!-- Tanlash tugmasi -->
-                <button type="button" onclick="tanlash()"><a href="joylashuv.html">JOYLASHUV</a></button>
+                <button type="button" onclick="joylashuvniAniqlash()">JOYLASHUV</button>
             </form>
 
             <!-- Natija ko'rsatish -->
@@ -173,6 +176,8 @@
             document.getElementById("result").textContent = `Hisoblangan narx: ${price.toFixed(2)} so'm`;
         });
     </script>
+    <!-- Google Maps JavaScript API ni ulash -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 
 </body>
 </html>

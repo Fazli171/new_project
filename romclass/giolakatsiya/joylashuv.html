@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolokatsiya va Joy Nomi Aniqlash</title>
+    <link rel="stylesheet" href="viloyat.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Geolokatsiya va Joy Nomi Aniqlash</h1>
+        <p id="status">Joylashuvingizni aniqlash uchun "Aniqlash" tugmasini bosing.</p>
+        <button id="locateBtn">Aniqlash</button>
+        <div id="result">
+            <p><strong>Kenglik:</strong> <span id="latitude"></span></p>
+            <p><strong>Uzunlik:</strong> <span id="longitude"></span></p>
+            <p><strong>Joy Nomi:</strong> <span id="locationName"></span></p>
+            <p><strong>Xarita:</strong></p>
+            <iframe id="map" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script src="sccript.js"></script>
+</body>
+</html>

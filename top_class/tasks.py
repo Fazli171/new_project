@@ -70,29 +70,7 @@ class Car(Vhisle):
 car = Car("chevrolet", 200, 4)
 print(car.show_info())
 
-class User:
 
-    def __init__(self):
-        self.__password = ""
-        self.shrift = []
-
-    def set_password(self, new_password):
-        self.__password = new_password
-
-    def get_password(self):
-        return self.__password
-
-    def __encrypt_password(self):
-        for i in range(len(self.__password)):
-            self.shrift.append(sample(self.__password, k=1))
-        
-    def show_encrypted_password(self):
-        return self.shrift
-
-user1 = User()
-user1.set_password("secret123")
-print(user1.get_password())            # secret123
-print(user1.show_encrypted_password()) # ****
 
 class Playlist:
     def __init__(self):

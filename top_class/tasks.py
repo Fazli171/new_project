@@ -71,6 +71,29 @@ car = Car("chevrolet", 200, 4)
 print(car.show_info())
 
 
+class User:
+    def __init__(self):
+        self.__password = ""
+        self.shrift = ""
+
+    def set_password(self, new_password):
+        self.__password = new_password
+        self.__encrypt_password()
+
+    def get_password(self):
+        return self.__password
+
+    def __encrypt_password(self):
+        self.shrift = "".join(sample(self.__password, len(self.__password)))
+
+    def show_encrypted_password(self):
+        return self.shrift
+
+user1 = User()
+user1.set_password("secret123")
+print(user1.get_password())            # secret123
+print(user1.show_encrypted_password()) # Masalan: "t3e1srce2"
+
 
 class Playlist:
     def __init__(self):

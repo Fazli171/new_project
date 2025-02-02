@@ -1,7 +1,7 @@
 lis = [1, 2, 5, 7, 9, 34, 90, 12, 45]
 
 class Math:
-    def __init__(self, emaunt, liss):
+    def __init__(self, emaunt, liss, itm):
         self.emaunt = emaunt
         self.x = 10
         self.liss = liss
@@ -27,9 +27,21 @@ class Math:
     def __getitem__(self, index):
         return self.liss[index]
     
+    def __setitem__(self, index, value):
+        self.liss[index] = value
+
+    def __contains__(self, qiymat):
+        return qiymat in self.liss
     
+    def __iter__(self):
+        return iter(self.itm)
 
 
 mat = Math(200, lis)
 print(mat[2])
 print(len(mat))
+mat[1] = 22
+print(mat.liss)
+print(11 in lis)
+
+

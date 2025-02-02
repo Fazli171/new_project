@@ -1,8 +1,10 @@
+lis = [1, 2, 5, 7, 9, 34, 90, 12, 45]
+
 class Math:
-    def __init__(self, emaunt):
+    def __init__(self, emaunt, liss):
         self.emaunt = emaunt
         self.x = 10
-
+        self.liss = liss
     def __str__(self):
         return self.emaunt
     
@@ -10,8 +12,24 @@ class Math:
         return f"malumot reprda chiqdi {self.emaunt}"
     
     def __delattr__(self, name):
+        '''class xususiyatini o'chirish '''
         print( f"{name} axususiyati o'chirildi")
         super.__delattr__(name)
-mat = Math('200')
-del mat.x   
-print(mat.x)
+
+    def __eq__(self, value):
+        if isinstance(value, Math):
+            return self.emaunt == value.emaunt
+        return f'faqat tegishli class abyektlari bilan solishtiriladi'
+
+    def __len__(self):
+        return len(self.liss)
+    
+    def __getitem__(self, index):
+        return self.liss[index]
+    
+    
+
+
+mat = Math(200, lis)
+print(mat[2])
+print(len(mat))

@@ -131,45 +131,96 @@ class mevalar
 
 
 '''
-from typing import List
+# from typing import List
 
-class Mevalar:
-    def __init__(self, name, kg_dona):
-        self.name = name
-        self.kg_dona = kg_dona
+# class Mevalar:
+#     def __init__(self, name, kg_dona):
+#         self.name = name
+#         self.kg_dona = kg_dona
 
-    def __str__(self):
-        return f"meva nomi : {self.name} kg(dona) : {str(self.kg_dona)}"
+#     def __str__(self):
+#         return f"meva nomi : {self.name} kg(dona) : {str(self.kg_dona)}"
     
-meva1 = Mevalar('olma', 12)
-meva2 = Mevalar('Anjir', 20)
-meva3 = Mevalar('gilos', 30)
-meva4 = Mevalar('olxori', 18)
+# meva1 = Mevalar('olma', 12)
+# meva2 = Mevalar('Anjir', 20)
+# meva3 = Mevalar('gilos', 30)
+# meva4 = Mevalar('olxori', 18)
 
-mevalar = [meva1, meva2, meva3, meva4]
+# mevalar = [meva1, meva2, meva3, meva4]
 
-class Masalliq:
-    def __init__(self, name, kg):
-        self.name = name
-        self.kg = kg
+# class Masalliq:
+#     def __init__(self, name, kg):
+#         self.name = name
+#         self.kg = kg
 
-    def __str__(self):
-        return f"nomi {self.name} kg {self.kg}"
+#     def __str__(self):
+#         return f"nomi {self.name} kg {self.kg}"
 
-masalliq1 = Masalliq('shakar', 5)
-masalliq2 = Masalliq('suv', 3)
-masalliq3 = Masalliq('tuz', 2)
+# masalliq1 = Masalliq('shakar', 5)
+# masalliq2 = Masalliq('suv', 3)
+# masalliq3 = Masalliq('tuz', 2)
 
-masalliqlar = [masalliq1, masalliq2, masalliq3]
+# masalliqlar = [masalliq1, masalliq2, masalliq3]
 
-class Product:
-    def __init__(self, meva: List[Mevalar], masalliq: List[Masalliq]):
-        self.meva = meva
-        self.masalliq = masalliq
+# class Product:
+#     def __init__(self, meva: List[Mevalar], masalliq: List[Masalliq]):
+#         self.meva = meva
+#         self.masalliq = masalliq
 
-    def __str__(self):
-        return f"Mevalar: \n" + "\n".join(str(m) for m in self.meva) + "\nMasalliqlar: \n" + "\n".join(str(m) for m in self.masalliq)
+#     def __str__(self):
+#         return f"Mevalar: \n" + "\n".join(str(m) for m in self.meva) + "\nMasalliqlar: \n" + "\n".join(str(m) for m in self.masalliq)
     
-product = Product(mevalar, masalliqlar)
+# product = Product(mevalar, masalliqlar)
 
-print(product)
+# print(product)
+
+
+class Student:
+    def __init__(self, name, age, kurs):
+        self.name = name
+        self.kurs = kurs
+        self.age = age
+
+    def get_info(self):
+        return {
+            "name ": self.name.title(),
+            "age" : self.age,
+            "kurs" : self.kurs
+        }
+        
+talabalar = {}
+
+while True:
+    name = input("talaba ismini kriting : ").lower()
+    if name == 'stop':
+        break
+    if not name.isalpha():
+        print('Talaba ismida raqamlar ishtiroki mumkin emas')
+        continue
+    while True:
+        age = input('talaba yoshini kriting : ')
+        if age.isdigit():
+            age = int(age)
+            break
+        else:
+            print('talaba yoshi raqamlardan iborat bolishi zarur')
+
+    while True:
+        kurs = input("talaba kursini kriting : ") 
+        if kurs.isdigit():
+            kurs = int(kurs)
+            break
+        else:
+            print("talaba yoshini raqamlardan iborat bo'lishi zarur")
+    
+
+    talaba = f"talaba{len()}"
+    talabalar[talaba] = Student(name, age, kurs).get_info()
+    
+ 
+try:
+    with open("talabalar.json", "a", encoding="utf-8") as file:
+        json.dump(talabalar, file, indent=4, ensure_ascii=False)
+    print("\n✅ talabalar JSON faylga saqlandi: talabalar.json")
+except Exception as e:
+    print(f"\n❌ Xatolik yuz berdi: {e}")

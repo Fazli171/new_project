@@ -1,4 +1,5 @@
 # from typing import List
+import json
 
 # class Book:
 #     def __init__(self, title: str, author: str, year: int, genre: str):
@@ -69,38 +70,49 @@
 
 
 
+import json
+
 class Frut:
     def __init__(self, name, kg_soni, saq_mud):
         self.name = name
         self.kg_soni = kg_soni
         self.saq_mud = saq_mud
+
     def get_info(self):
-        return f"nomi {self.name} kg(soni) {self.kg_soni} saqlash muddati {self.saq_mud}"
-    
+        return {
+            "name": self.name,
+            "kg_soni": self.kg_soni,
+            "saq_mud": self.saq_mud
+        }
+
 mevalar = {}
 n = 1
+
 while True:
-    name = input('mevani nomini kriting').lower()
-    if name == 'stop':
+    name = input("Mevani nomini kiriting (yoki 'stop' deb yozing): ").lower()
+    if name == "stop":
         break
     if not name.isalpha():
-        print("Iltimos mevalarni nomini yozishda raqamlarni ishlatmang ")
+        print("Iltimos, meva nomini faqat harflar bilan kiriting! Raqam yoki maxsus belgilar ishlatmang.")
         continue
+
     while True:
-        kg_soni = input('mevani kg(soni) kriting ')
+        kg_soni = input("Mevani kg(soni) ni kiriting: ")
         if kg_soni.isdigit():
             kg_soni = int(kg_soni)
             break
         else:
-            print('Iltimos mevalarni kg(soni)ni yozishda harflardan foydalanmang')
-        
+            print("Iltimos, mevaning kg(soni)ni faqat raqamlar bilan kiriting!")
 
-    saq_mud = input('saqlash muddatini yozing ')
+    saq_mud = input("Saqlash muddatini kiriting: ")
 
     meva_key = f"meva{n}"
-    mevalar[meva_key] = Frut(name, kg_soni, saq_mud)
+    mevalar[meva_key] = Frut(name, kg_soni, saq_mud).get_info() ~
     n += 1
 
-for i, v in mevalar.items():
-    print(f'{i} = {v.get_info()}')
-    
+try:
+    with open("mevalar.json", "w", encoding="utf-8") as file:
+        json.dump(mevalar, file, indent=4, ensure_ascii=False)
+    print("\n✅ Mevalar JSON faylga saqlandi: mevalar.json")
+except Exception as e:
+    print(f"\n❌ Xatolik yuz berdi: {e}")

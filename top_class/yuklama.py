@@ -1,5 +1,6 @@
-# from typing import List
+from typing import List
 import json
+from datetime import datetime, timedelta
 
 # class Book:
 #     def __init__(self, title: str, author: str, year: int, genre: str):
@@ -69,8 +70,8 @@ import json
 # print(library.get_all_books())
 
 
-
 import json
+from datetime import datetime, timedelta
 
 class Frut:
     def __init__(self, name, kg_soni, saq_mud):
@@ -82,7 +83,7 @@ class Frut:
         return {
             "name": self.name,
             "kg_soni": self.kg_soni,
-            "saq_mud": self.saq_mud
+            "saq_mud": self.saq_mud.strftime("%d-%B %Y")  # Chiroyli format
         }
 
 mevalar = {}
@@ -104,10 +105,17 @@ while True:
         else:
             print("Iltimos, mevaning kg(soni)ni faqat raqamlar bilan kiriting!")
 
-    saq_mud = input("Saqlash muddatini kiriting: ")
+    while True:
+        saq_mud = input("Saqlash muddatini kiriting (kunlarda): ")
+        if saq_mud.isdigit():
+            saq_mud = int(saq_mud)  
+            s = datetime.now() + timedelta(days=saq_mud)
+            break
+        else:
+            print("Iltimos, faqat raqamlardan foydalaning!")
 
     meva_key = f"meva{n}"
-    mevalar[meva_key] = Frut(name, kg_soni, saq_mud).get_info() ~
+    mevalar[meva_key] = Frut(name, kg_soni, s).get_info() 
     n += 1
 
 try:

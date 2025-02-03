@@ -70,57 +70,106 @@ from datetime import datetime, timedelta
 # print(library.get_all_books())
 
 
-import json
-from datetime import datetime, timedelta
 
-class Frut:
-    def __init__(self, name, kg_soni, saq_mud):
+# class Frut:
+#     def __init__(self, name, kg_soni, saq_mud):
+#         self.name = name
+#         self.kg_soni = kg_soni
+#         self.saq_mud = saq_mud
+
+#     def get_info(self):
+#         return {
+#             "name": self.name,
+#             "kg_soni": self.kg_soni,
+#             "saq_mud": self.saq_mud.strftime("%d-%B %Y")  
+#         }
+
+# mevalar = {}
+# n = 1
+
+# while True:
+#     name = input("Mevani nomini kiriting (yoki 'stop' deb yozing): ").lower()
+#     if name == "stop":
+#         break
+#     if not name.isalpha():
+#         print("Iltimos, meva nomini faqat harflar bilan kiriting! Raqam yoki maxsus belgilar ishlatmang.")
+#         continue
+
+#     while True:
+#         kg_soni = input("Mevani kg(soni) ni kiriting: ")
+#         if kg_soni.isdigit():
+#             kg_soni = int(kg_soni)
+#             break
+#         else:
+#             print("Iltimos, mevaning kg(soni)ni faqat raqamlar bilan kiriting!")
+
+#     while True:
+#         saq_mud = input("Saqlash muddatini kiriting (kunlarda): ")
+#         if saq_mud.isdigit():
+#             saq_mud = int(saq_mud)  
+#             s = datetime.now() + timedelta(days=saq_mud)
+#             break
+#         else:
+#             print("Iltimos, faqat raqamlardan foydalaning!")
+
+#     meva_key = f"meva{n}"
+#     mevalar[meva_key] = Frut(name, kg_soni, s).get_info() 
+#     n += 1
+
+# try:
+#     with open("mevalar.json", "a", encoding="utf-8") as file:
+#         json.dump(mevalar, file, indent=4, ensure_ascii=False)
+#     print("\n✅ Mevalar JSON faylga saqlandi: mevalar.json")
+# except Exception as e:
+#     print(f"\n❌ Xatolik yuz berdi: {e}")
+
+
+'''
+class dokon 
+obj = maxsulotlar
+class mevalar 
+
+
+'''
+from typing import List
+
+class Mevalar:
+    def __init__(self, name, kg_dona):
         self.name = name
-        self.kg_soni = kg_soni
-        self.saq_mud = saq_mud
+        self.kg_dona = kg_dona
 
-    def get_info(self):
-        return {
-            "name": self.name,
-            "kg_soni": self.kg_soni,
-            "saq_mud": self.saq_mud.strftime("%d-%B %Y")  # Chiroyli format
-        }
+    def __str__(self):
+        return f"meva nomi : {self.name} kg(dona) : {str(self.kg_dona)}"
+    
+meva1 = Mevalar('olma', 12)
+meva2 = Mevalar('Anjir', 20)
+meva3 = Mevalar('gilos', 30)
+meva4 = Mevalar('olxori', 18)
 
-mevalar = {}
-n = 1
+mevalar = [meva1, meva2, meva3, meva4]
 
-while True:
-    name = input("Mevani nomini kiriting (yoki 'stop' deb yozing): ").lower()
-    if name == "stop":
-        break
-    if not name.isalpha():
-        print("Iltimos, meva nomini faqat harflar bilan kiriting! Raqam yoki maxsus belgilar ishlatmang.")
-        continue
+class Masalliq:
+    def __init__(self, name, kg):
+        self.name = name
+        self.kg = kg
 
-    while True:
-        kg_soni = input("Mevani kg(soni) ni kiriting: ")
-        if kg_soni.isdigit():
-            kg_soni = int(kg_soni)
-            break
-        else:
-            print("Iltimos, mevaning kg(soni)ni faqat raqamlar bilan kiriting!")
+    def __str__(self):
+        return f"nomi {self.name} kg {self.kg}"
 
-    while True:
-        saq_mud = input("Saqlash muddatini kiriting (kunlarda): ")
-        if saq_mud.isdigit():
-            saq_mud = int(saq_mud)  
-            s = datetime.now() + timedelta(days=saq_mud)
-            break
-        else:
-            print("Iltimos, faqat raqamlardan foydalaning!")
+masalliq1 = Masalliq('shakar', 5)
+masalliq2 = Masalliq('suv', 3)
+masalliq3 = Masalliq('tuz', 2)
 
-    meva_key = f"meva{n}"
-    mevalar[meva_key] = Frut(name, kg_soni, s).get_info() 
-    n += 1
+masalliqlar = [masalliq1, masalliq2, masalliq3]
 
-try:
-    with open("mevalar.json", "w", encoding="utf-8") as file:
-        json.dump(mevalar, file, indent=4, ensure_ascii=False)
-    print("\n✅ Mevalar JSON faylga saqlandi: mevalar.json")
-except Exception as e:
-    print(f"\n❌ Xatolik yuz berdi: {e}")
+class Product:
+    def __init__(self, meva: List[Mevalar], masalliq: List[Masalliq]):
+        self.meva = meva
+        self.masalliq = masalliq
+
+    def __str__(self):
+        return f"Mevalar: \n" + "\n".join(str(m) for m in self.meva) + "\nMasalliqlar: \n" + "\n".join(str(m) for m in self.masalliq)
+    
+product = Product(mevalar, masalliqlar)
+
+print(product)

@@ -84,18 +84,23 @@ while True:
     if name == 'stop':
         break
     if not name.isalpha():
-        print("Iltimos mevalarni nomini yozishda raqamlarni ishlatmang")
+        print("Iltimos mevalarni nomini yozishda raqamlarni ishlatmang ")
         continue
-    kg_soni = input('mevani kg(soni) kriting')
-    if not kg_soni.isdigit():
-        print('Iltimos mevalarni kg(soni)ni yozishda harflardan foydalanmang')
+    while True:
+        kg_soni = input('mevani kg(soni) kriting ')
+        if kg_soni.isdigit():
+            kg_soni = int(kg_soni)
+            break
+        else:
+            print('Iltimos mevalarni kg(soni)ni yozishda harflardan foydalanmang')
+        
 
-    saq_mud = input('saqlash muddatini yozing')
+    saq_mud = input('saqlash muddatini yozing ')
 
     meva_key = f"meva{n}"
     mevalar[meva_key] = Frut(name, kg_soni, saq_mud)
     n += 1
 
 for i, v in mevalar.items():
-    print(f'{i}, {v}')
+    print(f'{i} = {v.get_info()}')
     

@@ -1,4 +1,5 @@
 import json
+from collections import Counter
 
 # from abc import ABC, abstractmethod
 # class Transport(ABC):
@@ -106,4 +107,27 @@ import json
 #     print(f'JSON o\'qishda xato: {e}')
 # except Exception as e:
 #     print(f'Xato bor: {e}')
+
+# try:
+#     file = 'mevalar.json'
+#     with open(file, 'r+', encoding='utf-8') as f:
+#         try:
+#             data = json.load(f)
+
+#             data1 = data if isinstance(data, list) else []
+#             print(data1)
+#         except json.JSONDecodeError:
+#             f.seek(0)
+#             json.dump([], f)
+#             print('fayl bosh unga bosh list yaratildi')
+# except Exception:
+#     print('xatolik bor')
+
+
+with open('pwd.txt', 'r', encoding='utf-8') as f:
+    file = f.readlines()
+
+parol = [i.strip().split(';')[1] for i in file ]
+counter = Counter(parol)
+print(counter.most_common(5))
 

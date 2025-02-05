@@ -22,3 +22,7 @@ class Weather:
             return json.dumps(data, indent=4)
         else:
             return f"Xatolik: {response.status_code}"
+
+weat = Weather()
+
+print(weat.weather())

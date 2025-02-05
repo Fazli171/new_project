@@ -124,10 +124,11 @@ from collections import Counter
 #     print('xatolik bor')
 
 
-with open('pwd.txt', 'r', encoding='utf-8') as f:
-    file = f.readlines()
+# with open('pwd.txt', 'r', encoding='utf-8') as f:
+#     file = f.readlines()
 
-parol = [i.strip().split(';')[1] for i in file ]
-counter = Counter(parol)
-print(counter.most_common(5))
+# parol = [i.strip().split(';')[1] for i in file ]
+# counter = Counter(parol)
+# print(counter.most_common(5))
 
+ 

@@ -15,3 +15,19 @@ class Tanzaksiya:
         for i in data:
             print(i.center(80))
         return
+
+
+    def sell(self):
+        result = int(input(f"Valuta juftligini ko'rsating \nUSD->UZS = 0\nRUB->UZS = 1\nEUR->UZS = 2"))
+        emaut = float(input(f"{filtered_data[result]['CcyNm_UZ']} -> qiymatni kriting"))
+        return f"{round((float(filtered_data[result]['Rate']) * 0.97 )* emaut, 2)} uzs"
+
+    def buy(self):
+        result = int(input(f"Valuta juftligini ko'rsating \nUZS->USD = 0\nUZS=>RUB = 1\nUZS->EUR = 2"))
+        emaut = float(input(f"UZS -> qiymatni kriting"))
+        return f"{round(emaut / (float(filtered_data[result]['Rate'])), 2)} {filtered_data[result]['CcyNm_UZ']}"
+
+d = Tanzaksiya()
+print(d.course())
+print(d.sell())
+print(d.buy())

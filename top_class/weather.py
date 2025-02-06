@@ -1,7 +1,7 @@
 import requests
 import json
 
-
+data1 = []
 class Weather:
 
     def weather(self):
@@ -19,10 +19,20 @@ class Weather:
 
         if response.status_code == 200:
             data = response.json()
+            with open('data,json', 'w', encoding='utf-8') as f:
+                json.dump(data, f , indent=2)
             return json.dumps(data, indent=4)
         else:
-            return f"Xatolik: {response.status_code}"
+            return "Xatolik: "
+
+
 
 weat = Weather()
 
 print(weat.weather())
+print('\n'.join(data1),type(data1))
+
+
+
+
+

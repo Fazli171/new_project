@@ -1,0 +1,122 @@
+{
+  "location": {
+    "city": "Samarqand",
+    "woeid": 2272628,
+    "country": "Uzbekistan",
+    "lat": 39.666698,
+    "long": 66.966698,
+    "timezone_id": "Asia/Samarkand"
+  },
+  "current_observation": {
+    "pubDate": 1738836642,
+    "wind": {
+      "chill": 59,
+      "direction": "NE",
+      "speed": 6
+    },
+    "atmosphere": {
+      "humidity": 28,
+      "visibility": 10,
+      "pressure": 1019.3
+    },
+    "astronomy": {
+      "sunrise": "7:35 AM",
+      "sunset": "5:59 PM"
+    },
+    "condition": {
+      "temperature": 56,
+      "text": "Sunny",
+      "code": 32
+    }
+  },
+  "forecasts": [
+    {
+      "day": "Thu",
+      "date": 1738857600,
+      "high": 60,
+      "low": 37,
+      "text": "Sunny",
+      "code": 32
+    },
+    {
+      "day": "Fri",
+      "date": 1738944000,
+      "high": 58,
+      "low": 37,
+      "text": "Cloudy",
+      "code": 26
+    },
+    {
+      "day": "Sat",
+      "date": 1739030400,
+      "high": 57,
+      "low": 30,
+      "text": "Showers",
+      "code": 11
+    },
+    {
+      "day": "Sun",
+      "date": 1739116800,
+      "high": 40,
+      "low": 31,
+      "text": "Cloudy",
+      "code": 26
+    },
+    {
+      "day": "Mon",
+      "date": 1739203200,
+      "high": 37,
+      "low": 22,
+      "text": "Sleet",
+      "code": 18
+    },
+    {
+      "day": "Tue",
+      "date": 1739289600,
+      "high": 33,
+      "low": 24,
+      "text": "Sleet",
+      "code": 18
+    },
+    {
+      "day": "Wed",
+      "date": 1739376000,
+      "high": 35,
+      "low": 25,
+      "text": "Cloudy",
+      "code": 26
+    },
+    {
+      "day": "Thu",
+      "date": 1739462400,
+      "high": 40,
+      "low": 31,
+      "text": "Mostly Cloudy",
+      "code": 28
+    },
+    {
+      "day": "Fri",
+      "date": 1739548800,
+      "high": 45,
+      "low": 30,
+      "text": "Partly Cloudy",
+      "code": 30
+    },
+    {
+      "day": "Sat",
+      "date": 1739635200,
+      "high": 45,
+      "low": 33,
+      "text": "Showers",
+      "code": 11
+    },
+    {
+      "day": "Sun",
+      "date": 1739721600,
+      "high": 52,
+      "low": 35,
+      "text": "Partly Cloudy",
+      "code": 30
+    }
+  ]
+}

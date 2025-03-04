@@ -8,14 +8,14 @@
     "timezone_id": "Asia/Samarkand"
   },
   "current_observation": {
-    "pubDate": 1738836642,
+    "pubDate": 1738843212,
     "wind": {
-      "chill": 59,
-      "direction": "NE",
+      "chill": 56,
+      "direction": "NNE",
       "speed": 6
     },
     "atmosphere": {
-      "humidity": 28,
+      "humidity": 29,
       "visibility": 10,
       "pressure": 1019.3
     },
@@ -35,8 +35,8 @@
       "date": 1738857600,
       "high": 60,
       "low": 37,
-      "text": "Sunny",
-      "code": 32
+      "text": "Cloudy",
+      "code": 26
     },
     {
       "day": "Fri",

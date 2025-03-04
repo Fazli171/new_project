@@ -118,7 +118,7 @@ from collections import Counter
 #             print(data1)
 #         except json.JSONDecodeError:
 #             f.seek(0)
-#             json.dump([], f)
+#             json.dump([], f)~
 #             print('fayl bosh unga bosh list yaratildi')
 # except Exception:
 #     print('xatolik bor')
